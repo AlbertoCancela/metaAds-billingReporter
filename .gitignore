@@ -1,0 +1,16 @@
+# Secretos: NUNCA versionar
+.env
+.env.*
+!.env.example
+
+# Datos generados en cada servidor
+salidas/*
+!salidas/.gitkeep
+registros/*
+!registros/.gitkeep
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.DS_Store

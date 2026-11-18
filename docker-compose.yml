@@ -1,0 +1,30 @@
+services:
+  # Genera y envía los comprobantes cada viernes a las 13:00 (hora de México)
+  programador:
+    build: .
+    image: meta-ads-billing:1.0.0
+    command: ["programador", "--dia", "viernes", "--hora", "13:00"]
+    environment:
+      - TZ=America/Mexico_City
+    volumes:
+      - ./.env:/app/.env:ro          # tokens y correo (solo lectura)
+      - ./config:/app/config:ro
+      - ./salidas:/app/salidas       # PDF generados
+      - ./registros:/app/registros   # pagos ya enviados: NO borrar
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options: { max-size: "5m", max-file: "3" }
+
+  # Comandos sueltos: docker compose run --rm cli verificar | comprobantes --prueba --enviar
+  cli:
+    build: .
+    image: meta-ads-billing:1.0.0
+    environment:
+      - TZ=America/Mexico_City
+    volumes:
+      - ./.env:/app/.env:ro
+      - ./config:/app/config:ro
+      - ./salidas:/app/salidas
+      - ./registros:/app/registros
+    profiles: ["cli"]

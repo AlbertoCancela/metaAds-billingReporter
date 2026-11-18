@@ -1,0 +1,4 @@
+# Servidor de correo para los comprobantes semanales.
+# La cuenta, la contraseña y los destinatarios van en .env (MAIL_USER, MAIL_PASS, MAIL_TO, MAIL_CONTACTO).
+servidor: smtp.gmail.com
+puerto: 465

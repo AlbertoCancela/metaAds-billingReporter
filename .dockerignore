@@ -1,0 +1,8 @@
+.env
+.env.*
+.git
+salidas
+registros
+__pycache__
+*.py[cod]
+.DS_Store

@@ -1,0 +1,17 @@
+# Portfolios (SIN tokens: solo el nombre de la variable del .env que tiene cada token)
+api_version: v26.0   # https://developers.facebook.com/docs/graph-api/changelog/versions
+
+portfolios:
+  anytime:
+    nombre: Anytime Fitness
+    variable_token: META_TOKEN_ANYTIME
+    cuentas: []        # Vacío = todas las que devuelva me/adaccounts. Ej: ["act_123456789"]
+    # recibo:          # Opcional: encabezado del comprobante en PDF
+    #   razon_social: "..."
+    #   rfc: "..."
+    #   direccion: "..."
+
+  garken:
+    nombre: Garken Medical
+    variable_token: META_TOKEN_GARKENRECLU
+    cuentas: []
